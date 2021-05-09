@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    
+
     private GameObject m_Player;
     private Rigidbody m_Rigidbody;
     private NavMeshAgent m_NavAgent;
@@ -65,6 +68,8 @@ public class EnemyBehaviour : MonoBehaviour
     private void CheckDeath() 
     {
         if (m_Health <= 0)
-            Destroy(gameObject);
+        {
+            GetComponent<EnemyGeneralBehaviour>().OnDestroy.Invoke(gameObject);
+        }
     }
 }

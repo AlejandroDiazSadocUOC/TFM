@@ -8,6 +8,10 @@ TagManager:
   - Bullet
   - HealthRestore
   - EnemyBullet
+  - SpawnPoint
+  - Rooms
+  - EntryRoom
+  - RoomsParent
   layers:
   - Default
   - TransparentFX

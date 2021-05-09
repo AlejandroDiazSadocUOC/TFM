@@ -1,16 +1,24 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AddRoom
+    - Boss1Behaviour
     - BulletBehaviour
+    - Destroyer
     - EnemyBehaviour
     - EnemyBulletBehaviour
+    - EnemyGeneralBehaviour
     - EnemyRanger2Behaviour
     - EnemyRangerBehaviour
     - EnemyTankBehaviour
+    - ExitLevelBehaviour
     - GameManager
-    - HealthAppleObject
+    - GameOverManager
+    - MoveRoom
     - PlayerBehaviour
-    - SpecialBulletUpgrade
+    - RoomBehaviour
+    - RoomSpawner
+    - RoomTemplates
     - SpeedUpObjectBehaviour
     UMotionEditor.dll:
     - "\u0389\u0389\u0389\u0389\u0389\u038A\u038A\u038A\u0389\u038A\u0389\u038A\u038A\u0389\u038A\u0389\u038A\u0389\u038A\u038A\u038A\u0389\u0389\u0389\u0389\u0389\u038A\u0389\u038A\u038A\u038A\u038A\u038A\u0389\u038A\u038A\u0389\u0389\u0389\u038A\u038A\u0389\u038A\u0389\u0389\u0389\u038A"
@@ -30,10 +38,13 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
+    - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/Game.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -75,35 +86,51 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1894}
+      Script: {instanceID: 1544}
     - Class: 114
-      Script: {instanceID: 2086}
+      Script: {instanceID: 1718}
     - Class: 114
-      Script: {instanceID: 2088}
+      Script: {instanceID: 1722}
     - Class: 114
-      Script: {instanceID: 2250}
+      Script: {instanceID: 1750}
     - Class: 114
-      Script: {instanceID: 2422}
+      Script: {instanceID: 1888}
     - Class: 114
-      Script: {instanceID: 2780}
+      Script: {instanceID: 1904}
     - Class: 114
-      Script: {instanceID: 2962}
+      Script: {instanceID: 1906}
     - Class: 114
-      Script: {instanceID: 3188}
+      Script: {instanceID: 2098}
     - Class: 114
-      Script: {instanceID: 3218}
+      Script: {instanceID: 2100}
     - Class: 114
-      Script: {instanceID: 3362}
+      Script: {instanceID: 2252}
     - Class: 114
-      Script: {instanceID: 3392}
+      Script: {instanceID: 2262}
     - Class: 114
-      Script: {instanceID: 3394}
+      Script: {instanceID: 2436}
     - Class: 114
-      Script: {instanceID: 3518}
+      Script: {instanceID: 2794}
     - Class: 114
-      Script: {instanceID: 3612}
+      Script: {instanceID: 2976}
     - Class: 114
-      Script: {instanceID: 3832}
+      Script: {instanceID: 3168}
+    - Class: 114
+      Script: {instanceID: 3206}
+    - Class: 114
+      Script: {instanceID: 3380}
+    - Class: 114
+      Script: {instanceID: 3412}
+    - Class: 114
+      Script: {instanceID: 3536}
+    - Class: 114
+      Script: {instanceID: 3630}
+    - Class: 114
+      Script: {instanceID: 3692}
+    - Class: 114
+      Script: {instanceID: 3796}
+    - Class: 114
+      Script: {instanceID: 3856}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -116,6 +143,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
@@ -123,6 +154,59 @@ ScriptsOnlyBuild:
     - Class: 238
       Script: {instanceID: 0}
     - Class: 850595691
+      Script: {instanceID: 0}
+    Assets/Scenes/GameOver.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1544}
+    - Class: 114
+      Script: {instanceID: 2292}
+    - Class: 114
+      Script: {instanceID: 2794}
+    - Class: 114
+      Script: {instanceID: 2976}
+    - Class: 114
+      Script: {instanceID: 3056}
+    - Class: 114
+      Script: {instanceID: 3206}
+    - Class: 114
+      Script: {instanceID: 3536}
+    - Class: 114
+      Script: {instanceID: 3674}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -149,6 +233,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelGenerator
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -181,6 +271,18 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MoveRoom
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AddRoom
+  - hash:
+      serializedVersion: 2
       Hash: 6bc76e17f0d5e93f3eea7f5a2fe227f3
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -191,6 +293,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Boss1Behaviour
   - hash:
       serializedVersion: 2
       Hash: 21a9c6dbf300fc1f6dc15ca7e2c39a37
@@ -227,6 +335,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_FontAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ExitLevelBehaviour
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Destroyer
   - hash:
       serializedVersion: 2
       Hash: 8d8b12dc14ee98100509749337738f5e
@@ -311,6 +431,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c1424d40612647c32f3700298689eb56
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RoomSpawner
   - hash:
       serializedVersion: 2
       Hash: f5b18d4a9b8ef20d4bbe22fb9ecf1b04
@@ -457,10 +583,22 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameOverManager
+  - hash:
+      serializedVersion: 2
       Hash: 6980e81ddc615a861309d2d659cc3760
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMeshUI
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyGeneralBehaviour
   - hash:
       serializedVersion: 2
       Hash: fd68d84f33fad85aac38f2739c0ee270
@@ -607,6 +745,12 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: 572964e88cda41792a8dde964a502bcf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RoomBehaviour
+  - hash:
+      serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -619,17 +763,24 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
+      Hash: 6e2028fa98b1b95f491a7314d1b8a848
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RoomTemplates
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: bd46761d8727cb1a355d9d1357c962d8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
   platform: 19
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Alejandro/Desktop/TFM/TFM/Build/TFM.exe
+  - Assets/Scenes/Game.unity
+  - Assets/Scenes/GameOver.unity
+  playerPath: C:/Users/Alejandro/Desktop/TFM/TFM/Application/TFM.exe

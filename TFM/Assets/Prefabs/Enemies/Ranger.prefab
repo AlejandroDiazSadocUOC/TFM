@@ -3239,6 +3239,7 @@ GameObject:
   - component: {fileID: 4711765098711786915}
   - component: {fileID: 3154776242101327384}
   - component: {fileID: 4553114667292218793}
+  - component: {fileID: 6044817201961044946}
   m_Layer: 0
   m_Name: Ranger
   m_TagString: Enemy
@@ -3255,7 +3256,7 @@ Transform:
   m_GameObject: {fileID: 4872684095280946540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4872684095281104670}
   - {fileID: 4872684095281102980}
@@ -3272,7 +3273,7 @@ Animator:
   m_GameObject: {fileID: 4872684095280946540}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3a3cea986292c2445a02c973a48c7e8b, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43e9bf024f3daa84cad1691a33cc177b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -3324,4 +3325,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7868776921872131996, guid: 0ce6e50ef1ac670478bbcc354de57101,
     type: 3}
-  m_FireCD: 0.05
+  m_FireCD: 0.5
+--- !u!114 &6044817201961044946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4872684095280946540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255d334e9893a2d45b44cbdfbff28a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

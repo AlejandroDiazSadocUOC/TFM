@@ -68,6 +68,8 @@ public class EnemyTankBehaviour : MonoBehaviour
     private void CheckDeath()
     {
         if (m_Health <= 0)
-            Destroy(gameObject);
+        {
+            GetComponent<EnemyGeneralBehaviour>().OnDestroy.Invoke(gameObject);
+        }
     }
 }

@@ -16,14 +16,13 @@ public class PlayerBehaviour : MonoBehaviour
     private float m_FireVerticalInputValue;
     private float m_FireLateralInputValue;
 
-    [SerializeField]
-    private float m_CurrentSpeed = 4.0f;
-    [SerializeField]
-    private float m_ShootCooldown = 0.25f;
-    [SerializeField]
-    private float m_CurrentHealth = 3;
-    [SerializeField]
-    private float m_MaxHealth = 3;
+    public float m_CurrentSpeed = 4.0f;
+    
+    public float m_ShootCooldown = 0.25f;
+
+    public float m_CurrentHealth = 3;
+
+    public float m_MaxHealth = 3;
 
     private int m_CurrentBullet = 0;
     private float m_CurrentAmmo = 10.0f;
@@ -64,6 +63,7 @@ public class PlayerBehaviour : MonoBehaviour
         RefreshFire();
     }
 
+    // Check the current animation acording to player's movement
     private void RefreshAnims()
     {
         if (m_MovementInputValue > 0 && !playerAnimator.GetBool("isWalking"))
@@ -86,20 +86,18 @@ public class PlayerBehaviour : MonoBehaviour
             ResetBoolsAnim();
     }
 
+    // Check if can shot and rotates the player
     private void RefreshFire()
     {
         if (m_FireVerticalInputValue > 0 && CanShot())
         {
             transform.rotation = Quaternion.Euler(transform.rotation.x, 0.0f, transform.rotation.z);
-            m_VerticalInvert = 1;
             Fire();
             lastShot = Time.time;
         }
         else if (m_FireVerticalInputValue < 0 && CanShot())
         {
-            //transform.localRotation = new Quaternion(transform.localRotation.x, 180.0f, transform.localRotation.z, transform.localRotation.w);
             transform.rotation = Quaternion.Euler(transform.rotation.x, 180.0f, transform.rotation.z);
-            m_VerticalInvert = -1;
             Fire();
             lastShot = Time.time;
 
@@ -108,16 +106,12 @@ public class PlayerBehaviour : MonoBehaviour
         if (m_FireLateralInputValue > 0 && CanShot())
         {
             transform.rotation = Quaternion.Euler(transform.rotation.x, 90.0f, transform.rotation.z);
-            m_LateralInvert = 1;
-            m_VerticalInvert = 1;
             Fire();
             lastShot = Time.time;
         }
         else if (m_FireLateralInputValue < 0 && CanShot())
         {
             transform.rotation = Quaternion.Euler(transform.rotation.x, 270.0f, transform.rotation.z);
-            m_LateralInvert = -1;
-            m_VerticalInvert = -1;
             Fire();
             lastShot = Time.time;
         }
@@ -149,10 +143,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Move()
     {
-        // Create a vector in the direction the tank is facing with a magnitude based on the input, speed and the time between frames
         Vector3 movement = Vector3.forward * m_MovementInputValue * m_CurrentSpeed * Time.deltaTime ;
         Vector3 lateralMovement = Vector3.right * m_LateralMovementInputValue * m_CurrentSpeed * Time.deltaTime ;
-        // Apply this movement to the rigidbody's position
+
         m_Rigidbody.MovePosition(m_Rigidbody.position + movement + lateralMovement);
     }
 
@@ -175,11 +168,20 @@ public class PlayerBehaviour : MonoBehaviour
     public void ReduceLife(float lifeQuantity)
     {
         m_CurrentHealth -= lifeQuantity;
+        CheckDeath();
+        UIBehaviour.m_Instance.RefreshLifes();
     }
 
-    public void AddLife(float LifeQuantity)
+    public bool AddLife(float LifeQuantity)
     {
-        m_CurrentHealth = m_CurrentHealth < m_MaxHealth ? m_CurrentHealth+LifeQuantity > m_MaxHealth ? m_MaxHealth : m_CurrentHealth + LifeQuantity : 0;
+        bool result = false;
+        if (m_CurrentHealth < m_MaxHealth)
+        {
+            m_CurrentHealth = m_CurrentHealth < m_MaxHealth ? m_CurrentHealth + LifeQuantity > m_MaxHealth ? m_MaxHealth : m_CurrentHealth + LifeQuantity : 0;
+            result = true;
+            UIBehaviour.m_Instance.RefreshLifes();
+        }
+        return result;
     }
 
     public void AddSpeed(float speed)

@@ -44,7 +44,7 @@ public class EnemyTankBehaviour : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            m_Health = 0;
+            m_Health -= 20;
             CheckDeath();
             PlayerBehaviour.m_instance.ReduceLife(1.0f);
             PlayerBehaviour.m_instance.CheckDeath();

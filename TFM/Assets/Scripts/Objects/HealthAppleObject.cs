@@ -23,8 +23,8 @@ public class HealthAppleObject : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            PlayerBehaviour.m_instance.AddLife(m_HealthToRestore);
-            Destroy(gameObject);
+            if(PlayerBehaviour.m_instance.AddLife(m_HealthToRestore))
+                Destroy(gameObject);
         }
     }
 }

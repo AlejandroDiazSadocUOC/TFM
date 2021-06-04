@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
         CurrentLevel++;
         Destroy(GameObject.FindGameObjectWithTag("EntryRoom"));
 
+        UIBehaviour.m_Instance.NextLevel();
+
         foreach (GameObject room in roomTemplates.rooms)
         {
             Destroy(room);
@@ -72,13 +74,13 @@ public class GameManager : MonoBehaviour
         {
             ChangeRoom(position, new Vector3(position.x + 10.0f, position.y, position.z));
             m_Camera.transform.position = new Vector3(position.x + 10.0f, m_Camera.transform.position.y, m_Camera.transform.position.z);
-            m_Player.transform.position = new Vector3(position.x + 10.0f, m_Player.transform.position.y, m_Player.transform.position.z);
+            m_Player.transform.position = new Vector3(position.x + 6.50f, m_Player.transform.position.y, m_Player.transform.position.z);
         }
         else
         {
             ChangeRoom(position, new Vector3(position.x - 10.0f, position.y, position.z));
             m_Camera.transform.position = new Vector3(position.x - 10.0f, m_Camera.transform.position.y, m_Camera.transform.position.z);
-            m_Player.transform.position = new Vector3(position.x - 10.0f, m_Player.transform.position.y, m_Player.transform.position.z);
+            m_Player.transform.position = new Vector3(position.x - 6.50f, m_Player.transform.position.y, m_Player.transform.position.z);
         }
         yield return new WaitForSecondsRealtime(0.1f);
         m_PanelRoomToMove.SetActive(false);
@@ -99,13 +101,13 @@ public class GameManager : MonoBehaviour
         {
             ChangeRoom(position, new Vector3(position.x,position.y,position.z + 10.0f));
             m_Camera.transform.position = new Vector3(m_Camera.transform.position.x, m_Camera.transform.position.y, position.z + 10.0f);
-            m_Player.transform.position = new Vector3(m_Player.transform.position.x, m_Player.transform.position.y, position.z + 10.0f);
+            m_Player.transform.position = new Vector3(m_Player.transform.position.x, m_Player.transform.position.y, position.z + 6.50f);
         }
         else
         {
             ChangeRoom(position, new Vector3(position.x, position.y, position.z - 10.0f));
             m_Camera.transform.position = new Vector3(m_Camera.transform.position.x, m_Camera.transform.position.y, position.z - 10.0f);
-            m_Player.transform.position = new Vector3(m_Player.transform.position.x, m_Player.transform.position.y, position.z - 10.0f);
+            m_Player.transform.position = new Vector3(m_Player.transform.position.x, m_Player.transform.position.y, position.z - 6.50f);
         }
         yield return new WaitForSecondsRealtime(0.1f);
         m_PanelRoomToMove.SetActive(false);
@@ -128,5 +130,6 @@ public class GameManager : MonoBehaviour
                 roomTemplates.roomsDictionary[(int)nextRoomPosition.x][(int)nextRoomPosition.z].GetComponent<RoomBehaviour>().SetRoomActive();
             }
         }
+        UIBehaviour.m_Instance.RoomDiscovered((int)nextRoomPosition.x, (int)nextRoomPosition.z);
     }
 }

@@ -16,12 +16,13 @@ public class MoveRoom : MonoBehaviour
         
     }
 
+    // Check x and z coords to know where the player wants to go regardin the actual room
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             Time.timeScale = 0;
-            if (Mathf.Abs(other.transform.position.x) > Mathf.Abs(other.transform.position.z))
+            if (Mathf.Abs(other.transform.position.x - transform.position.x) > Mathf.Abs(other.transform.position.z - transform.position.z))
             {
                 if (other.transform.position.x > transform.position.x)
                 {

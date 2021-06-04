@@ -17,9 +17,11 @@ public class RoomBehaviour : MonoBehaviour
 
     private bool isExitSpawned = false;
     
+    
     // Start is called before the first frame update
     void Start()
     {
+        // Start generation of room and its enemies
         while(Random.Range(0,1) > EnemiesProb)
         {
             m_EnemyIndex = Random.Range(0, m_EnemiesPrefabs.Count);
@@ -40,14 +42,15 @@ public class RoomBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Spawn the exit only once for boss rooms
         if (m_IsBossRoom && m_Enemies.Count <= 0 && !isExitSpawned)
         {
             isExitSpawned = true;
             Instantiate(m_ExitPrefab, transform.position, Quaternion.identity);
-            //GameManager.m_Instance.NextLevel();
         }
     }
 
+    // Set gameobject of room active and its enemies too.
     public void SetRoomActive()
     {
         gameObject.SetActive(true);
@@ -56,8 +59,12 @@ public class RoomBehaviour : MonoBehaviour
             if(go != null)
                 go.SetActive(true);
         }
+        if (m_IsBossRoom && m_Enemies.Count > 0)
+            m_Enemies[0].GetComponent<Boss1Behaviour>().StartCoroutine("AttackCoroutine");
+
     }
 
+    // Select this room as the boss room.
     public void SetBossRoom(GameObject boss)
     {
         boss.SetActive(false);
@@ -69,10 +76,12 @@ public class RoomBehaviour : MonoBehaviour
         m_Enemies.Clear();
         m_Enemies.Add(boss);
         boss.GetComponent<EnemyGeneralBehaviour>().OnDestroy = OnDestroyEnemy;
+        boss.transform.parent = transform;
     }
 
     public void OnDestroyEnemy(GameObject enemy)
     {
+        enemy.GetComponent<EnemyGeneralBehaviour>().LootSpawn();
         m_Enemies.Remove(enemy);
         Destroy(enemy);
     }

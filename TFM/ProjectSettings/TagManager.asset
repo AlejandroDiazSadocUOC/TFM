@@ -12,6 +12,8 @@ TagManager:
   - Rooms
   - EntryRoom
   - RoomsParent
+  - PlayerUI
+  - Wall
   layers:
   - Default
   - TransparentFX

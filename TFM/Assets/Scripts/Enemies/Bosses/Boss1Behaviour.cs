@@ -13,7 +13,7 @@ public class Boss1Behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Player = GameObject.FindGameObjectWithTag("Player");
+        m_Player = PlayerBehaviour.m_instance.gameObject;
         m_Animator = GetComponent<Animator>();
         StartCoroutine(AttackCoroutine());
     }
@@ -21,14 +21,15 @@ public class Boss1Behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(m_Player!=null)
+            transform.LookAt(m_Player.transform);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
-            m_Health = 0;
+            m_Health -= 20.0f;
             CheckDeath();
             PlayerBehaviour.m_instance.ReduceLife(0.5f);
             PlayerBehaviour.m_instance.CheckDeath();
@@ -59,21 +60,24 @@ public class Boss1Behaviour : MonoBehaviour
 
     IEnumerator AttackCoroutine()
     {
-        if (attackSelected == 1)
-            StartCoroutine(Attack1(m_Player.transform.position));
-        else if(attackSelected == 2)
-            StartCoroutine(Attack2(m_Player.transform.position));
-        else if (attackSelected == 3)
-            StartCoroutine(Attack3(m_Player.transform.position));
+        if (m_Player != null)
+        {
+            if (attackSelected == 1)
+                StartCoroutine(Attack1(m_Player.transform.position));
+            else if (attackSelected == 2)
+                StartCoroutine(Attack2(m_Player.transform.position));
+            else if (attackSelected == 3)
+                StartCoroutine(Attack3(m_Player.transform.position));
+        }
         yield return null;
     }
 
     IEnumerator Attack1(Vector3 position)
     {
         m_Animator.Play("Attack1");
-        while (Vector3.Distance(position,transform.position) > 0.1f)
+        while (Vector3.Distance(position,transform.position) > 0.2f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, position, 0.01f);
+            transform.position = Vector3.MoveTowards(transform.position, position, 0.006f);
             yield return null;
         }
         consecutiveAttacks++;
@@ -83,9 +87,9 @@ public class Boss1Behaviour : MonoBehaviour
     IEnumerator Attack2(Vector3 position)
     {
         m_Animator.Play("Attack2");
-        while (Vector3.Distance(position, transform.position) > 0.1f)
+        while (Vector3.Distance(position, transform.position) > 0.2f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, position, 0.01f);
+            transform.position = Vector3.MoveTowards(transform.position, position, 0.006f);
             yield return null;
         }
         consecutiveAttacks++;
@@ -95,9 +99,9 @@ public class Boss1Behaviour : MonoBehaviour
     IEnumerator Attack3(Vector3 position)
     {
         m_Animator.Play("Attack3");
-        while (Vector3.Distance(position, transform.position) > 0.1f)
+        while (Vector3.Distance(position, transform.position) > 0.2f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, position, 0.01f);
+            transform.position = Vector3.MoveTowards(transform.position, position, 0.006f);
             yield return null;
         }
         consecutiveAttacks++;

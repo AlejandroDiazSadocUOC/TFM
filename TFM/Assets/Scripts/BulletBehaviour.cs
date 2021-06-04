@@ -31,7 +31,6 @@ public class BulletBehaviour : MonoBehaviour
 
     private void Move()
     {
-        // Create a vector in the direction the tank is facing with a magnitude based on the input, speed and the time between frames
         Vector3 movement = transform.forward * m_BulletSpeed  * Time.deltaTime;
         // Apply this movement to the rigidbody's position
         m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
@@ -55,8 +54,6 @@ public class BulletBehaviour : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //if (m_SphereCollider.isTrigger)
-        //    m_SphereCollider.isTrigger = false;
     }
     private IEnumerator CheckIfHit()
     {
@@ -65,5 +62,6 @@ public class BulletBehaviour : MonoBehaviour
             yield return new WaitForSeconds(3.0f);
             Destroy(gameObject);
         }
+        yield return null;
     }
 }

@@ -2701,7 +2701,7 @@ GameObject:
   - component: {fileID: 1617766279}
   - component: {fileID: 6306248344747197894}
   - component: {fileID: 604432349}
-  - component: {fileID: 932947036118270974}
+  - component: {fileID: 2824051470406602393}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -2734,7 +2734,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2373526652506695493}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 2732fe64dd2799f439fb845921df626b, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 8771ce8910a728e41ab62386f6e99f45, type: 3}
   m_Controller: {fileID: 9100000, guid: 1e54ac3f4fab75247b0e091b8b9a1701, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -2807,7 +2807,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 1
---- !u!114 &932947036118270974
+--- !u!114 &2824051470406602393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2819,6 +2819,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255d334e9893a2d45b44cbdfbff28a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ObjectsPrefabs:
+  - {fileID: 7180109224349615133, guid: d748872288770e74b85ae2391494bdee, type: 3}
+  - {fileID: 5726148958724692558, guid: 085f50ff86dd9724494198d16a52ded3, type: 3}
+  - {fileID: 909631125087851916, guid: ee9e9019aca3e5a499757a31a7514925, type: 3}
+  probabilityToLoot: 0.25
 --- !u!1 &2373526652506695495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,8 +2874,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b4974ce4617fbf249b3f7a0d01cb4e6e, type: 2}
-  - {fileID: 2100000, guid: b4974ce4617fbf249b3f7a0d01cb4e6e, type: 2}
+  - {fileID: 2100000, guid: 1bda1e2cc3a47d044bdbfdb4aec4e214, type: 2}
+  - {fileID: 2100000, guid: 1bda1e2cc3a47d044bdbfdb4aec4e214, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2895,7 +2900,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300002, guid: 2732fe64dd2799f439fb845921df626b, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 8771ce8910a728e41ab62386f6e99f45, type: 3}
   m_Bones:
   - {fileID: 2373526652506536809}
   - {fileID: 2373526652506536823}

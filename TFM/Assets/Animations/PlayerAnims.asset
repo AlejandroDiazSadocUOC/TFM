@@ -20,7 +20,7 @@ MonoBehaviour:
     PoseToolPivotMode:
       valueInternal: 1
     PoseToolMode:
-      valueInternal: 2
+      valueInternal: 1
     PoseMirrorMode:
       valueInternal: 0
     ConfigMode:
@@ -282,9 +282,9 @@ MonoBehaviour:
             valueInternal: 0
           newKeyListSerialized: 00000000
     - CurrentValue:
-        valueInternal: 0
+        valueInternal: 0.2
       ReferencePoseValue:
-        valueInternal: 0
+        valueInternal: 0.2
       PoseValueList: []
       ChannelPerClipList:
       - LayerList:
@@ -301,7 +301,7 @@ MonoBehaviour:
           newKeyListSerialized: 00000000
       - LayerList:
         - CurrentOriginalValue:
-            valueInternal: 0
+            valueInternal: 0.2
           newKeyListSerialized: 00000000
     - CurrentValue:
         valueInternal: 0
@@ -447,9 +447,9 @@ MonoBehaviour:
       valueInternal: 0
     LocalScaleChannelList:
     - CurrentValue:
-        valueInternal: 1
+        valueInternal: 0.7
       ReferencePoseValue:
-        valueInternal: 1
+        valueInternal: 0.7
       PoseValueList: []
       ChannelPerClipList:
       - LayerList:
@@ -466,12 +466,12 @@ MonoBehaviour:
           newKeyListSerialized: 00000000
       - LayerList:
         - CurrentOriginalValue:
-            valueInternal: 1
+            valueInternal: 0.7
           newKeyListSerialized: 00000000
     - CurrentValue:
-        valueInternal: 1
+        valueInternal: 0.7
       ReferencePoseValue:
-        valueInternal: 1
+        valueInternal: 0.7
       PoseValueList: []
       ChannelPerClipList:
       - LayerList:
@@ -488,12 +488,12 @@ MonoBehaviour:
           newKeyListSerialized: 00000000
       - LayerList:
         - CurrentOriginalValue:
-            valueInternal: 1
+            valueInternal: 0.7
           newKeyListSerialized: 00000000
     - CurrentValue:
-        valueInternal: 1
+        valueInternal: 0.7
       ReferencePoseValue:
-        valueInternal: 1
+        valueInternal: 0.7
       PoseValueList: []
       ChannelPerClipList:
       - LayerList:
@@ -510,7 +510,7 @@ MonoBehaviour:
           newKeyListSerialized: 00000000
       - LayerList:
         - CurrentOriginalValue:
-            valueInternal: 1
+            valueInternal: 0.7
           newKeyListSerialized: 00000000
     IkEnable:
       valueInternal: 0

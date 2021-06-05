@@ -77,7 +77,7 @@ public class Boss1Behaviour : MonoBehaviour
         m_Animator.Play("Attack1");
         while (Vector3.Distance(position,transform.position) > 0.2f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, position, 0.006f);
+            transform.position = Vector3.MoveTowards(transform.position, position, 3.4f * Time.deltaTime);
             yield return null;
         }
         consecutiveAttacks++;
@@ -89,7 +89,7 @@ public class Boss1Behaviour : MonoBehaviour
         m_Animator.Play("Attack2");
         while (Vector3.Distance(position, transform.position) > 0.2f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, position, 0.006f);
+            transform.position = Vector3.MoveTowards(transform.position, position, 3.4f * Time.deltaTime);
             yield return null;
         }
         consecutiveAttacks++;
@@ -101,7 +101,7 @@ public class Boss1Behaviour : MonoBehaviour
         m_Animator.Play("Attack3");
         while (Vector3.Distance(position, transform.position) > 0.2f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, position, 0.006f);
+            transform.position = Vector3.MoveTowards(transform.position, position, 3.4f * Time.deltaTime);
             yield return null;
         }
         consecutiveAttacks++;
